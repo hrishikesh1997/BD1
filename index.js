@@ -9,7 +9,7 @@ app.use(express.static('static'));
 app.get('/cart-total',(req,res)=>{
   let newItemPrice=parseFloat(req.query.newItemPrice);
   let cartTotal=parseFloat(req.query.cartTotal);
-  let result = newItemPrice*cartTotal;
+  let result = newItemPrice+cartTotal;
 
   res.send(result.toString());
 
@@ -35,6 +35,7 @@ app.get('/calculate-tax',(req,res)=>{
   let Taxrate=cartTotal*5/100;
   res.send(Taxrate.toString());
 })
+
 app.get('/estimate-delivery',(req,res)=>{
   let  shippingMethod =req.query. shippingMethod ;
   let distance=parseFloat(req.query.distance);
