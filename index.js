@@ -1,9 +1,11 @@
 const express = require('express');
 const { resolve } = require('path');
+let cors=require("cors");
+
 
 const app = express();
 const port = 3010;
-
+app.use(cors());
 app.use(express.static('static'));
 
 app.get('/cart-total',(req,res)=>{
